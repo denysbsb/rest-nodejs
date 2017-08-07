@@ -5,12 +5,16 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 
 var routes = require('./routes/index');
+var usuarios = require('./routes/usuarios');
 
 //Setup do express
 var app = express();
 
 //Para incluir headers por conta do CORS
 app.use(cors());
+
+var rdb = require("./models/rdb");
+app.rdb = rdb;
 
 //Metodos GET,POST,PUT,DELETE on nodejs
 app.use(methodOverride('X-HTTP-Method'));
@@ -34,6 +38,7 @@ app.get('/', function (req, res) {
 })
 
 app.use('/api', routes);
+app.use('/usuarios', usuarios);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

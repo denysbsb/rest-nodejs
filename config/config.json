@@ -1,0 +1,24 @@
+{
+    "development" : {
+        "username": "postgres",
+        "password": "restnode",
+        "database": "restnode",
+        "host": "localhost",
+        "port": "5432",
+        "dialect": "postgres"
+    },
+    "production" : {
+        "username" : "",
+        "password" : "",
+        "database" : "",
+        "host" : "",
+        "dialect" : "postgres",
+        "port" : "5432"
+    },
+    "appVersion" : "1.0.0",
+    "secret" : "45e4b255526645d0fcdzinfa56207ebc1069",
+    "facebookClientID" : "346007265753450",
+    "facebookClientSecret" : "353fc5e807eb63dddc22a4253bb04934",
+    "tokenExpirationTime" : 360000,
+    "admTokenExpirationTime" : 720000
+}
