@@ -4,6 +4,8 @@ var favicon = require('serve-favicon');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 
+var routes = require('./routes/index');
+
 //Setup do express
 var app = express();
 
@@ -19,11 +21,19 @@ app.use(methodOverride('_method'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+// view engine setup
+app.set('views', './views');
+app.set('view engine', 'pug');
+
+
+//Routes
 app.get('/', function (req, res) {  
     res.render(
         'index',
-        { title: 'Node App', message: 'Node App'})
+        { title: 'Restfull em nodejs', message: 'acesse as rotas'})
 })
+
+app.use('/api', routes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
